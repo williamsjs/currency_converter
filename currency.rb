@@ -6,6 +6,10 @@ class Currency
     @currency = currency
   end
 
+  def to_s
+    puts "amount is #{@total}, currency is #{@currency}"
+  end
+
   def ==(currency_object)
     if @total == currency_object.total && @currency == currency_object.currency
       true
