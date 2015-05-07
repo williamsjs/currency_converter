@@ -1,24 +1,32 @@
 class Currency
-  attr_reader :amount, :currency
+  attr_reader :total, :currency
 
-  def initialize(amount, currency)
-    @amount = amount
+  def initialize(total, currency)
+    @total = total
     @currency = currency
   end
 
   def ==(currency_object)
-    if @amount == currency_object.amount && @currency == currency_object.currency
+    if @total == currency_object.total && @currency == currency_object.currency
       true
     else
       false
     end
   end
 
-  def add_value(currency_object)
+  def add(currency_object)
     if @currency == currency_object.currency
-      @amount += currency_object.amount
+      @total += currency_object.total
     else
-      puts "Can't add value because the currencies are different"
+      puts "DifferentCurrencyCodeError"
+    end
+  end
+
+  def subtract(currency_object)
+    if @currency == currency_object.currency
+      @total -= currency_object.total
+    else
+      puts "DifferentCurrencyCodeError"
     end
   end
 
