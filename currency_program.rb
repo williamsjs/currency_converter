@@ -4,14 +4,9 @@ require './currency.rb'
 amount_1 = Currency.new(5, :USD) # creates instance of currency class
 amount_2 = Currency.new(25, :USD) #creates instance of currencyconverter class
 
-amount_1 * amount_2
+conversion_1 = CurrencyConverter.new
 
-puts amount_1.total
+conversion_1.convert(amount_1, :USD)
 
-amount_1 + amount_2
-
-puts amount_1.total
-
-amount_1 - amount_2
-
-puts amount_1.total
+puts conversion_1.created_currency.total
+puts conversion_1.created_currency.currency
