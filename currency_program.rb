@@ -1,8 +1,12 @@
 require './currency_converter.rb'
 require './currency.rb'
 
-my_currency = Currency.new # creates instance of currency class
-converter = CurrencyConverter.new #creates instance of currencyconverter class
+amount_1 = Currency.new(25, :USD) # creates instance of currency class
+amount_2 = Currency.new(25, :USD) #creates instance of currencyconverter class
 
-puts my_currency
-puts converter
+puts amount_2.amount
+puts amount_1.amount
+puts amount_1.currency
+puts amount_2.currency
+
+puts amount_1 == amount_2
