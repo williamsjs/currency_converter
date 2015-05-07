@@ -9,4 +9,6 @@ puts amount_1.amount
 puts amount_1.currency
 puts amount_2.currency
 
-puts amount_1 == amount_2
+amount_2.add_value(amount_1)
+
+puts amount_2.amount
