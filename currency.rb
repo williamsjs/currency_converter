@@ -18,7 +18,7 @@ class Currency
     if @currency == currency_object.currency
       @total += currency_object.total
     else
-      puts "DifferentCurrencyCodeError"
+      currency_object.error
     end
   end
 
@@ -26,8 +26,21 @@ class Currency
     if @currency == currency_object.currency
       @total -= currency_object.total
     else
-      puts "DifferentCurrencyCodeError"
+      currency_object.error
     end
+  end
+
+  def multiply(currency_object)
+    if @currency == currency_object.currency
+      @total = @total.to_f
+      @total *= currency_object.total.to_f
+    else
+      currency_object.error
+    end
+  end
+
+  def error
+    puts "DifferentCurrencyCodeError"
   end
 
 end
