@@ -1,12 +1,10 @@
 require './currency_converter.rb'
 require './currency.rb'
 
-japan_amount_1 = Currency.new(500, :JPN) # creates instance of currency class
-american_amount_1 = Currency.new(1, :USD) #creates instance of currencyconverter class
+us_dollars_15 = Currency.new(15, :USD)
+jpn_yen_700_ = Currency.new(700, :JPN)
+euros_25 = Currency.new(25, :EUR)
 
-puts american_amount_1
-puts japan_amount_1
+conversion_rate_1 = CurrencyConverter.new({USD: 1, EUR: 0.8, JPN: 400})
 
-conversion = CurrencyConverter.new
-
-puts conversion.convert(japan_amount_1, :EUR)
+puts conversion_rate_1.convert(us_dollars_15, :ER)

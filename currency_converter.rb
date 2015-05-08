@@ -1,18 +1,10 @@
 class CurrencyConverter
+  attr_reader :world_currencies
 
-  def initialize
-    @world_currencies = {USD: 1.0,
-                        EUR: 0.89,
-                        JPN: 119.77}
+  def initialize(world_currencies)
+    @world_currencies = world_currencies
   end
 
-  # def convert(currency_object, currency_code)
-  #   if currency_object.currency == currency_code
-  #     Currency.new(currency_object.total, currency_code)
-  #   else
-  #     error
-  #   end
-  # end
 
   def value
     @world_currencies[:USD].class
@@ -21,11 +13,12 @@ class CurrencyConverter
 
   def convert(currency_object, requested_currency)
     if currency_object.currency == requested_currency
-      currency_object
-    elsif !@world_currencies.has_key?(currency_object.currency)
-      puts "#{currency_object.currency} doesn't exist"
+      currency_object.total
+    elsif !@world_currencies.has_key?(currency_object.currency) || !@world_currencies.has_key?(requested_currency)
+      unknown
     else
       first_calc = currency_object.total / @world_currencies[currency_object.currency]
+      puts first_calc
       second_calc = first_calc * @world_currencies[requested_currency]
     end
   end
@@ -37,8 +30,8 @@ class CurrencyConverter
 
 
 
-  def error
-    "DifferentCurrencyCodeError"
+  def unknown
+    "UnknownCurrencyCodeError"
   end
 
 end
