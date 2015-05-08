@@ -5,12 +5,6 @@ class CurrencyConverter
       @world_currencies = world_currencies
   end
 
-
-  def value
-    @world_currencies[:USD].class
-  end
-
-
   def convert(currency_object, requested_currency)
     if currency_object.currency == requested_currency
       currency_object.total.to_f
