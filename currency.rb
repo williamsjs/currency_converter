@@ -43,6 +43,15 @@ class Currency
     end
   end
 
+  def /(currency_object)
+    if @currency == currency_object.currency
+      @total = @total.to_f
+      @total /= currency_object.total.to_f
+    else
+      currency_object.error
+    end
+  end
+
   def error
     puts "DifferentCurrencyCodeError"
   end
