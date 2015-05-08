@@ -6,4 +6,6 @@ amount_2 = Currency.new(25, :USD) #creates instance of currencyconverter class
 
 conversion_1 = CurrencyConverter.new
 
-conversion_1.convert(amount_1, :USD)
+amount_3 = conversion_1.convert(amount_1, :USA)
+
+puts amount_3 == amount_1
