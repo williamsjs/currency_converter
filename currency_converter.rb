@@ -13,13 +13,13 @@ class CurrencyConverter
 
   def convert(currency_object, requested_currency)
     if currency_object.currency == requested_currency
-      currency_object.total
+      currency_object.total.to_f
     elsif !@world_currencies.has_key?(currency_object.currency) || !@world_currencies.has_key?(requested_currency)
       unknown
     else
-      first_calc = currency_object.total / @world_currencies[currency_object.currency]
+      first_calc = currency_object.total.to_f / @world_currencies[currency_object.currency].to_f
       puts first_calc
-      second_calc = first_calc * @world_currencies[requested_currency]
+      second_calc = first_calc.to_f * @world_currencies[requested_currency].to_f
     end
   end
 
