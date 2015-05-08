@@ -2,7 +2,7 @@ class CurrencyConverter
   attr_reader :world_currencies
 
   def initialize(world_currencies)
-    @world_currencies = world_currencies
+      @world_currencies = world_currencies
   end
 
 
@@ -18,8 +18,8 @@ class CurrencyConverter
       unknown
     else
       first_calc = currency_object.total.to_f / @world_currencies[currency_object.currency].to_f
-      puts first_calc
       second_calc = first_calc.to_f * @world_currencies[requested_currency].to_f
+      Currency.new(second_calc, requested_currency)
     end
   end
 
