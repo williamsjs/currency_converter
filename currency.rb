@@ -53,7 +53,7 @@ class Currency
   end
 
   def error
-    puts "DifferentCurrencyCodeError"
+    raise "DifferentCurrencyCodeError"
   end
 
 end

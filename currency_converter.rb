@@ -22,10 +22,12 @@ class CurrencyConverter
     @world_currencies[requested_currency]
   end
 
-
-
   def unknown
-    "UnknownCurrencyCodeError"
+    raise "UnknownCurrencyCodeError"
+  end
+
+  def to_s
+    "#{@world_currencies}"
   end
 
 end
