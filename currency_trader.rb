@@ -7,16 +7,15 @@ class CurrencyTrader
     @starting_currency = starting_currency
   end
 
-  def to_s
-    puts "first conversion is #{@converter_1}"
-    puts "second conversion is #{@converter_2}"
-    puts "starting currency is #{@starting_currency}"
+  def total(currency_object)
+    currency_object = currency_object.total
   end
 
   def best_investment
-    #should return currency
-
+    values = 
+    converter_1.world_currencies.each do |key, value|
+      current_currency = @converter_1.convert(@starting_currency, key)
+      puts current_currency.total
+    end
   end
-
-  #converter_1
 end
