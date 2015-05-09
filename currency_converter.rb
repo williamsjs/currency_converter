@@ -21,8 +21,4 @@ class CurrencyConverter
     raise "UnknownCurrencyCodeError"
   end
 
-  def to_s
-    "#{world_currencies}"
-  end
-
 end

@@ -7,15 +7,22 @@ class CurrencyTrader
     @starting_currency = starting_currency
   end
 
-  def total(currency_object)
-    currency_object = currency_object.total
-  end
-
   def best_investment
-    values = 
+    values = []
     converter_1.world_currencies.each do |key, value|
       current_currency = @converter_1.convert(@starting_currency, key)
-      puts current_currency.total
+      values.push(current_currency)
     end
+    finals = []
+    values.each do |item|
+      final = converter_2.convert(item, @starting_currency.currency)
+      finals.push(final)
+    end
+    numbers = []
+    finals.each do |item|
+      numbers.push(item.total)
+    end
+    largest_return = numbers.max
+    if 
   end
 end
