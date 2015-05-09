@@ -13,16 +13,23 @@ class CurrencyTrader
       current_currency = @converter_1.convert(@starting_currency, key)
       values.push(current_currency)
     end
+    values
     finals = []
     values.each do |item|
       final = converter_2.convert(item, @starting_currency.currency)
       finals.push(final)
     end
+    finals
     numbers = []
     finals.each do |item|
       numbers.push(item.total)
     end
     largest_return = numbers.max
-    if 
+    values.each do |item|
+      final = converter_2.convert(item, @starting_currency.currency)
+      if final.total == largest_return
+        return "Best Currency to transfer to is #{item.currency}"
+      end
+    end
   end
 end

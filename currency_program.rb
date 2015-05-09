@@ -21,4 +21,4 @@ aug_rate = CurrencyConverter.new({USD: 0.25, EUR: 0.3, JPN: 900})
 trade_1 = CurrencyTrader.new(jan_rate, aug_rate, us_1)
 
 
-trade_1.best_investment
+puts trade_1.best_investment
