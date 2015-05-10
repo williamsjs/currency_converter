@@ -1,5 +1,5 @@
 class Currency
-  attr_accessor :total, :currency
+  attr_reader :total, :currency
 
   def initialize(total, currency)
     @total = total
@@ -11,7 +11,7 @@ class Currency
   end
 
   def ==(currency_object)
-    if @total == currency_object.total && @currency == currency_object.currency
+    if total == currency_object.total && currency == currency_object.currency
       true
     else
       false
@@ -19,34 +19,34 @@ class Currency
   end
 
   def +(currency_object)
-    if @currency == currency_object.currency
-      @total += currency_object.total
+    if currency == currency_object.currency
+      total += currency_object.total
     else
       currency_object.error
     end
   end
 
   def -(currency_object)
-    if @currency == currency_object.currency
-      @total -= currency_object.total
+    if currency == currency_object.currency
+      total -= currency_object.total
     else
       currency_object.error
     end
   end
 
   def *(currency_object)
-    if @currency == currency_object.currency
-      @total = @total.to_f
-      @total *= currency_object.total.to_f
+    if currency == currency_object.currency
+      total = total.to_f
+      total *= currency_object.total.to_f
     else
       currency_object.error
     end
   end
 
   def /(currency_object)
-    if @currency == currency_object.currency
-      @total = @total.to_f
-      @total /= currency_object.total.to_f
+    if currency == currency_object.currency
+      total = total.to_f
+      total /= currency_object.total.to_f
     else
       currency_object.error
     end

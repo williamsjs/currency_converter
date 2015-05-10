@@ -1,9 +1,11 @@
 class CurrencyTrader
-  attr_reader :converter_1, :converter_2, :starting_currency
+  attr_reader :conversion_rates, :starting_currency
 
-  def initialize(converter_1, converter_2, starting_currency)
-    @converter_1 = converter_1
-    @converter_2 = converter_2
+  def initialize(*conversion_rates, starting_currency)
+    @conversion_rates = []
+    @conversion_rates = @conversion_rates.push(conversion_rates)
+    # @converter_1 = converter_1
+    # @converter_2 = converter_2
     @starting_currency = starting_currency
   end
 
@@ -14,16 +16,17 @@ class CurrencyTrader
     numbers = final_conversion(finals)
     largest_return = numbers.max
     values.each do |item|
-      final = converter_2.convert(item, @starting_currency.currency)
+      final = converter_2.convert(item, starting_currency.currency)
       if final.total == largest_return
         return "Best Currency to transfer to is #{item.currency}"
       end
     end
   end
 
-  def first_conversion(values)
-    converter_1.world_currencies.each do |key, value|
-      current_currency = @converter_1.convert(@starting_currency, key)
+  def first_conversion(values, conversion_rates)
+    #converter_1.world_currencies.each do |key, value|
+    conversion_rates[].world_currencies.each do |key, value|
+      current_currency = converter_1.convert(starting_currency, key)
       values.push(current_currency)
     end
     values
@@ -32,7 +35,7 @@ class CurrencyTrader
   def second_conversion(values)
     finals = []
     values.each do |item|
-      final = converter_2.convert(item, @starting_currency.currency)
+      final = converter_2.convert(item, starting_currency.currency)
       finals.push(final)
     end
     finals
@@ -45,5 +48,7 @@ class CurrencyTrader
     end
     numbers
   end
+
+
 
 end
