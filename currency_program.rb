@@ -21,4 +21,4 @@ dec_rate = CurrencyConverter.new({USD: 0.5, EUR: 1.0, JPN: 1100})
 
 trade_1 = CurrencyTrader.new(jan_rate, aug_rate, dec_rate, us_1)
 
-print trade_1.conversion_rates
+trade_1.best_investment
